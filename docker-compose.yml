@@ -1,0 +1,50 @@
+version: '3.9'
+
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./backend/.env
+    volumes:
+      - ./backend:/app
+    depends_on:   
+      - mongo
+    networks:
+      - mern-app
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./frontend/.env
+    volumes:
+      - ./frontend:/app
+    depends_on:
+      - backend
+      
+    networks:
+      - mern-app
+
+  mongo:
+    image: mongo:5
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+      - ./mongodb:/docker-entrypoint-initdb.d
+    networks:
+      - mern-app
+
+volumes:
+  mongo-data:
+
+networks:
+  mern-app:
+    driver: bridge
+  
