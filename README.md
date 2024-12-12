@@ -5,6 +5,11 @@ Madness is a full-featured e-commerce application that allows users to browse, s
 1. **Logged-in Users**: Users who have created an account and logged in can enjoy a personalized shopping experience, including order history and saved preferences.
 2. **Guest Users**: Non-logged-in users can also make purchases, enabling quick and convenient shopping without the need for an account.
 
+## Admin Account
+
+- **Email**: Hoanglongvu233@gmail.com
+- **Password**: admin123456
+
 ## Features
 
 - **Product Management**: View, search, and filter products.
@@ -93,7 +98,7 @@ Create a `.env` file in the `backend` directory:
 
 ```plaintext
 PORT=5000
-MONGO_URI=mongodb://database:27017/madness
+MONGO_URI=mongodb://database:27017/finalNode
 JWT_SECRET=your-secret-key
 ```
 
